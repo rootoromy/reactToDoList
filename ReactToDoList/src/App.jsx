@@ -9,7 +9,10 @@ function App() {
   return (
     <>
       <div className="wrap">
-        <input type="text" />
+        <div className="inputWrap">
+          <input type="text" />
+          <button>TODO</button>
+        </div>
       </div>
     </>
   )
