@@ -5,6 +5,12 @@
 //import { Container,Button } from "./styles";
 import styled from "styled-components";
 
+const GlobalStyle = createGlobalStyle`
+body {
+  justify-content:center;
+}
+`;
+
 const Button = styled.button`
 font-size: 1.5em;
 text-align: center;
@@ -23,6 +29,7 @@ function App() {
   return (
     <>
       <Container>
+        <h1>TO DO List</h1>
         <Button>Normal Button</Button>
         <Button $primary>Primary Button</Button>
       </Container>
