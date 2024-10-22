@@ -38,15 +38,27 @@ display: flex;
 flex-direction: row;
 `;
 
+const ColoredMessage = styled.div`
+  color: props.color;
+  font-size: 20px;
+`;
+
+ColoredMessage = (props) => {
+  console.log(props);
+};
 function App() {
+  const onClickButton = () =>{
+    alert('押された');
+  };
   return (
     <>
       <Container>
         <h1>TO DO List</h1>
         <InputWrap className="inputWrap">
           <Input type="text" />
-          <Button>TODO</Button>
+          <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
+        <ColoredMessage color={"pink"} message={"ここにTODOが表示されます"}/>
       </Container>
     </>
   )
