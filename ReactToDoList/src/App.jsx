@@ -1,19 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+//import { useState } from 'react'
+//import styled from "styled-components";
+//import styled, { css } from 'styled-components'
+//import './App.scss'
+import { Container,Button } from "./styles";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="wrap">
-        <div className="inputWrap">
-          <input type="text" />
-          <button>TODO</button>
-        </div>
-      </div>
+      <Container>
+        <Button>Normal Button</Button>
+        <Button $primary>Primary Button</Button>
+      </Container>
     </>
   )
 }
