@@ -5,13 +5,13 @@
 //import { Container,Button } from "./styles";
 
 
-import { ComponentStyles } from './components/ComponentStyles';
-
+import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage } from './components/ComponentStyles';
 
 function App() {
-  const onClickButton = () =>{
-    alert('押された');
+  const onClickButton = () => {
+    alert("Button clicked!");
   };
+
   return (
     <>
       <GlobalStyle />
