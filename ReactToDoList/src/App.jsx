@@ -1,11 +1,6 @@
 import { useState } from 'react'
-//import styled from "styled-components";
-//import styled, { css } from 'styled-components'
-//import './App.scss'
-//import { Container,Button } from "./styles";
 import { v4 as uuidv4 } from 'uuid';
-
-import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage } from './components/ComponentStyles';
+import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton } from './components/ComponentStyles';
 
 
 function App() {
@@ -14,7 +9,6 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   const uniqueId = uuidv4();
-  console.log('A unique ID:', uniqueId);
 
   const onChangeTodoText = (event) => {
     setTodoText(event.target.value);
@@ -31,7 +25,9 @@ function App() {
     setTodoText("");
   };
 
-  
+  const onDeleteButton = () => {
+    console.log('onDeleteButton押されました！！');
+  };
 
   return (
     <>
@@ -43,7 +39,7 @@ function App() {
           <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
         <ColoredMessage $primary><table>
-        {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}</tr>))}
+        {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
           </table></ColoredMessage>
       </Container>
     </>

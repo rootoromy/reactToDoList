@@ -13,6 +13,13 @@ export const Button = styled.button`
 font-size: 1rem;
 text-align: center;
 color: red;
+border: 2px solid blue;
+`;
+
+export const DeleteButton = styled.button`
+font-size: 1rem;
+text-align: center;
+color: red;
 border: 2px solid #BF4F74;
 `;
 
