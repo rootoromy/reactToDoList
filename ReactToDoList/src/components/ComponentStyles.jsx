@@ -40,6 +40,7 @@ export const ColoredMessage = styled.div`
   color: green;
   font-weight: 700;
   background-color: aqua;
+  text-align: left;
   `}
 `;
 
