@@ -51,3 +51,6 @@ export const ColoredMessage = styled.div`
   `}
 `;
 
+export const Text = styled.p`
+  color: red;
+`
