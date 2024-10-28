@@ -29,6 +29,12 @@ function App() {
     console.log('onDeleteButton押されました！！');
   };
 
+  const Text = (props:{content:string}) => {
+    const {content} = props
+    return <p className='text'>{content}</p>
+  };
+  const content1 = 'aiueo';
+
   return (
     <>
       <GlobalStyle />
@@ -38,6 +44,9 @@ function App() {
           <Input type="text" value={todoText} onChange={onChangeTodoText} />
           <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
+
+        <Text content={content1} />
+
         <ColoredMessage $primary><table>
         {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
           </table></ColoredMessage>
