@@ -29,6 +29,18 @@ function App() {
     console.log('onDeleteButton押されました！！');
   };
 
+  const ToggleButton = () =>{
+    const [open, setOpen] = useState(false)
+    const toggle = () => {
+      setOpen(prevState => !prevState);
+    }
+    return (
+      <button onClick={toggle}>
+        {open? 'OPEN':'CLOSE'}
+      </button>
+    );
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -40,7 +52,7 @@ function App() {
           <Input type="text" value={todoText} onChange={onChangeTodoText} />
           <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
-
+        <ToggleButton />
         <ColoredMessage $primary><table>
         {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
           </table></ColoredMessage>
