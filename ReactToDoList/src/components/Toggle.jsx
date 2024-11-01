@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button } from './components/ComponentStyles';
 
 const ToggleButton = () =>{
   const [open, setOpen] = useState(true)
@@ -6,9 +7,9 @@ const ToggleButton = () =>{
     setOpen(prevState => !prevState);
   }
   return (
-    <button onClick={toggle}>
+    <Button onClick={toggle}>
       {open? '未完了':'完了'}
-    </button>
+    </Button>
   );
 };
 
