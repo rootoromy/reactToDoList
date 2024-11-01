@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text } from './components/ComponentStyles';
-import ToggleButton from './components/Toggle';
+import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text } from './components/ComponentStyles.jsx';
+import ToggleButton from './components/Toggle.jsx';
 
 function App() {
 

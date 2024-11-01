@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from './components/ComponentStyles';
+import { Button } from 'ComponentStyles.jsx';
 
 const ToggleButton = () =>{
   const [open, setOpen] = useState(true)
