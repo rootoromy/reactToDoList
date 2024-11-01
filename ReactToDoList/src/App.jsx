@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text } from './components/ComponentStyles';
-
+import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text, ToggleButton } from './components/ComponentStyles';
+import ToggleButton from './components/Toggle';
 
 function App() {
 
@@ -29,18 +29,6 @@ function App() {
     console.log('onDeleteButton押されました！！');
   };
 
-  const ToggleButton = () =>{
-    const [open, setOpen] = useState(false)
-    const toggle = () => {
-      setOpen(prevState => !prevState);
-    }
-    return (
-      <button onClick={toggle}>
-        {open? 'OPEN':'CLOSE'}
-      </button>
-    );
-  };
-
   return (
     <>
       <GlobalStyle />
@@ -52,9 +40,9 @@ function App() {
           <Input type="text" value={todoText} onChange={onChangeTodoText} />
           <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
-        <ToggleButton />
+        
         <ColoredMessage $primary><table>
-        {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
+        {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<ToggleButton /><DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
           </table></ColoredMessage>
       </Container>
     </>
