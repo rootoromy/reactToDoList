@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text } from './components/ComponentStyles.jsx';
+import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text, TodoTr } from './components/ComponentStyles.jsx';
 import ToggleButton from './components/Toggle.jsx';
 
 function App() {
@@ -21,12 +21,19 @@ function App() {
   const onClickButton = () => {
     todoList.push(newTodo);
     console.log("newTodo:", newTodo);
+    console.log("todoList:", todoList);
     setTodoList(todoList);
     setTodoText("");
   };
 
-  const onDeleteButton = () => {
+  const onDeleteButton = (key) => {
     console.log('onDeleteButton押されました！！');
+    const deleteTarget = document.getElementbyId(key);
+    todoList.filter(todoList => {
+      console.log(`return:${todoList.id !== deleteTarget}`);
+      return todoList.id !== deleteTarget;
+    });
+    onClickFunction();
   };
 
   return (
@@ -42,7 +49,7 @@ function App() {
         </InputWrap>
         
         <ColoredMessage $primary><table>
-        {todoList.map((newTodo)=>(<tr key={newTodo.id}>・{newTodo.text}<ToggleButton /><DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></tr>))}
+        {todoList.map((newTodo)=>(<TodoTr key={newTodo.id}>・{newTodo.text}<ToggleButton /><DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></TodoTr>))}
           </table></ColoredMessage>
       </Container>
     </>
