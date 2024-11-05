@@ -45,14 +45,15 @@ function App() {
         </InputWrap>
         
         <ColoredMessage $primary>
-        <table>
+        <table><tbody>
         {todoList.map((newTodo)=>(
-          <TodoTr key={newTodo.id}>・{newTodo.text}
-            <ToggleButton />
-            <DeleteButton onClick={() => onDeleteButton(newTodo.id)}>Delete</DeleteButton>
+          <TodoTr key={newTodo.id}>
+            <td>・{newTodo.text}</td>
+            <td><ToggleButton /></td>
+            <td><DeleteButton onClick={() => onDeleteButton(newTodo.id)}>Delete</DeleteButton></td>
           </TodoTr>
         ))}
-        </table>
+        </tbody></table>
         </ColoredMessage>
       </Container>
     </>
