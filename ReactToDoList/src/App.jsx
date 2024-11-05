@@ -8,32 +8,29 @@ function App() {
   const [todoText, setTodoText] = useState("");
   const [todoList, setTodoList] = useState([]);
 
-  const uniqueId = uuidv4();
-
   const onChangeTodoText = (event) => {
     setTodoText(event.target.value);
   };
 
-  let newTodo = {
-    id: uniqueId,
-    text: todoText
-  };
+
   const onClickButton = () => {
-    todoList.push(newTodo);
+    const newTodo = {
+      id: uuidv4(),
+      text: todoText
+    };
+
     console.log("newTodo:", newTodo);
     console.log("todoList:", todoList);
-    setTodoList(todoList);
+    setTodoList([...todoList, newTodo]);
     setTodoText("");
   };
 
-  const onDeleteButton = (key) => {
+  const onDeleteButton = (id) => {
     console.log('onDeleteButton押されました！！');
-    const deleteTarget = document.getElementbyId(key);
-    todoList.filter(todoList => {
-      console.log(`return:${todoList.id !== deleteTarget}`);
-      return todoList.id !== deleteTarget;
-    });
-    onClickFunction();
+
+    const newTodoList = todoList.filter((todo) => todo.id !== id);
+
+    setTodoList(newTodoList);
   };
 
   return (
@@ -48,9 +45,16 @@ function App() {
           <Button onClick={onClickButton}>TODO</Button>
         </InputWrap>
         
-        <ColoredMessage $primary><table>
-        {todoList.map((newTodo)=>(<TodoTr key={newTodo.id}>・{newTodo.text}<ToggleButton /><DeleteButton onClick={onDeleteButton}>Delete</DeleteButton></TodoTr>))}
-          </table></ColoredMessage>
+        <ColoredMessage $primary>
+        <table>
+        {todoList.map((newTodo)=>(
+          <TodoTr key={newTodo.id}>・{newTodo.text}
+            <ToggleButton />
+            <DeleteButton onClick={() => onDeleteButton(newTodo.id)}>Delete</DeleteButton>
+          </TodoTr>
+        ))}
+        </table>
+        </ColoredMessage>
       </Container>
     </>
   )
