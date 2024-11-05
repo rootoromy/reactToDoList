@@ -26,7 +26,6 @@ function App() {
   };
 
   const onDeleteButton = (id) => {
-    console.log('onDeleteButton押されました！！');
 
     const newTodoList = todoList.filter((todo) => todo.id !== id);
 
