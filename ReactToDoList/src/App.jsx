@@ -14,6 +14,7 @@ import ConpTodoTr from "./components/ConpTodoTr.jsx";
 function App() {
   const [todoText, setTodoText] = useState("");
   const [todoList, setTodoList] = useState([]);
+  
 
   const onChangeTodoText = (event) => {
     setTodoText(event.target.value);
