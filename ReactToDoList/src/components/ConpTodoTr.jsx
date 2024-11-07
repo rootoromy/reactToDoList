@@ -5,7 +5,9 @@ import ToggleButton from "./Toggle";
 const ConpTodoTr = ({todo, onDelete}) => {
   return (
     <TodoTr>
-      <td>・{todo.text}</td>
+      <td>・{todo.text}<EditButton onClick={() => onEdit(todo.text)}>
+          Edit
+        </EditButton></td>
       <td>
         <ToggleButton />
       </td>
@@ -16,6 +18,18 @@ const ConpTodoTr = ({todo, onDelete}) => {
       </td>
     </TodoTr>
   );
+};
+
+const onEdit = (event) => {
+  //todo.textに変更を加えた情報をどうしたら取得できるのか
+  //配列の既存の要素を変更して配列に戻すにはどうすればいいのか
+  todoList.filter((todo)=>todo.text === text);
+  setTodoList();
+  const editedToDo = event.target.value;
+  console.log("editedToDo:", editedToDo);
+  setTodoList([...todoList, newTodo]);
+  
+  
 };
 
 ConpTodoTr.propTypes = {

@@ -9,7 +9,7 @@ import {
   ColoredMessage,
   Text,
 } from "./components/styles.jsx";
-import ConpTodoTr from "./components/TodoTr.jsx";
+import ConpTodoTr from "./components/ConpTodoTr.jsx";
 
 function App() {
   const [todoText, setTodoText] = useState("");
