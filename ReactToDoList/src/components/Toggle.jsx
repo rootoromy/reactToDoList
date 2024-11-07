@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import  { CompleteButton } from './ComponentStyles';
+import  { CompleteButton } from './styles';
 
 const ToggleButton = () =>{
   const [open, setOpen] = useState(true)

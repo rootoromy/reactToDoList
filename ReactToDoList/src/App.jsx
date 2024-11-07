@@ -1,10 +1,17 @@
-import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid';
-import { GlobalStyle, Button, Container, Input, InputWrap, ColoredMessage, DeleteButton, Text, TodoTr } from './components/ComponentStyles.jsx';
-import ToggleButton from './components/Toggle.jsx';
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import {
+  GlobalStyle,
+  Button,
+  Container,
+  Input,
+  InputWrap,
+  ColoredMessage,
+  Text,
+} from "./components/styles.jsx";
+import ConpTodoTr from "./components/TodoTr.jsx";
 
 function App() {
-
   const [todoText, setTodoText] = useState("");
   const [todoList, setTodoList] = useState([]);
 
@@ -12,11 +19,10 @@ function App() {
     setTodoText(event.target.value);
   };
 
-
-  const onClickButton = () => {
+  const onSubmit = () => {
     const newTodo = {
       id: uuidv4(),
-      text: todoText
+      text: todoText,
     };
 
     console.log("newTodo:", newTodo);
@@ -26,7 +32,6 @@ function App() {
   };
 
   const onDeleteButton = (id) => {
-
     const newTodoList = todoList.filter((todo) => todo.id !== id);
 
     setTodoList(newTodoList);
@@ -41,23 +46,25 @@ function App() {
         <Text>TODOボタンをクリックしてね</Text>
         <InputWrap className="inputWrap">
           <Input type="text" value={todoText} onChange={onChangeTodoText} />
-          <Button onClick={onClickButton}>TODO</Button>
+          <Button onClick={onSubmit}>TODO</Button>
         </InputWrap>
-        
+
         <ColoredMessage $primary>
-        <table><tbody>
-        {todoList.map((newTodo)=>(
-          <TodoTr key={newTodo.id}>
-            <td>・{newTodo.text}</td>
-            <td><ToggleButton /></td>
-            <td><DeleteButton onClick={() => onDeleteButton(newTodo.id)}>Delete</DeleteButton></td>
-          </TodoTr>
-        ))}
-        </tbody></table>
+          <table>
+            <tbody>
+              {todoList.map((newTodo) => (
+                <ConpTodoTr
+                  key={newTodo.id}
+                  todo={newTodo}
+                  onDelete={onDeleteButton}
+                />
+              ))}
+            </tbody>
+          </table>
         </ColoredMessage>
       </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
