@@ -1,23 +1,26 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { TodoTr, DeleteButton } from "./styles";
+import { TodoTr, DeleteButton, Textarea } from "./styles";
 import ToggleButton from "./Toggle";
 
 
 
 const ConpTodoTr = ({ todo, onDelete }) => {
   const [todoEdit, setTodoEdit] = useState(todo.text);
-  
+
+  const EditTextArea = (event) => {
+    setTodoEdit(event.target.value);
+  };
+
   return (
     <TodoTr>
       <td>
-        <EditTextArea
+        <Textarea
           type="text"
           value={todoEdit}
-          onChange={(event) => setTodoEdit(event.target.value)}
-        >
-          ・{todo.text}
-        </EditTextArea>
+          onChange={EditTextArea}
+        />
+         
       </td>
       <td>
         <ToggleButton />
@@ -29,13 +32,7 @@ const ConpTodoTr = ({ todo, onDelete }) => {
   );
 };
 
-const EditTextArea = (event) => {
-  //todo.textに変更を加えた情報をどうしたら取得できるのか
-  //配列の既存の要素を変更して配列に戻すにはどうすればいいのか
 
-  const editedToDo = event.target.value;
-  console.log("editedToDo:", editedToDo);
-};
 
 ConpTodoTr.propTypes = {
   todo: PropTypes.shape({

@@ -69,3 +69,13 @@ export const ColoredMessage = styled.div`
 export const Text = styled.p`
   color: red;
 `;
+
+export const Textarea = styled.textarea`
+  height: 48px;
+  line-height: 48px;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  vertical-align: middle;
+  width: 500px;
+`;
