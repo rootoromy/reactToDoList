@@ -5,13 +5,14 @@ import ToggleButton from "./Toggle";
 
 
 
-const ConpTodoTr = ({ todo, onDelete }) => {
+const ConpTodoTr = ({ todo, onDelete, onComplete }) => {
   const [todoEdit, setTodoEdit] = useState(todo.text);
 
   const EditTextArea = (event) => {
     setTodoEdit(event.target.value);
   };
 
+  //「どのTodoが完了したのか？」ということをデータとして保持したい。
   return (
     <TodoTr>
       <td>
@@ -20,10 +21,10 @@ const ConpTodoTr = ({ todo, onDelete }) => {
           value={todoEdit}
           onChange={EditTextArea}
         />
-         
+
       </td>
       <td>
-        <ToggleButton />
+        <ToggleButton todo={todo} onComplete={onComplete} />
       </td>
       <td>
         <DeleteButton onClick={() => onDelete(todo.id)}>Delete</DeleteButton>
@@ -40,5 +41,7 @@ ConpTodoTr.propTypes = {
     text: PropTypes.string.isRequired,
   }).isRequired,
   onDelete: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
 };
+
 export default ConpTodoTr;

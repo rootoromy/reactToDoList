@@ -24,19 +24,24 @@ function App() {
     const newTodo = {
       id: uuidv4(),
       text: todoText,
+      completed:false
     };
 
-    console.log("newTodo:", newTodo);
-    console.log("todoList:", todoList);
     setTodoList([...todoList, newTodo]);
     setTodoText("");
   };
 
   const onDeleteButton = (id) => {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
-
     setTodoList(newTodoList);
   };
+
+  const onComplete = (id) => {
+    const updateTodoList = todoList.map((todo) =>
+      todo.id === id ? {...todo, completed: !todo.completed } : todo);
+    setTodoList(updateTodoList);
+  };
+
 
   return (
     <>
@@ -58,6 +63,7 @@ function App() {
                   key={newTodo.id}
                   todo={newTodo}
                   onDelete={onDeleteButton}
+                  onComplete={onComplete}
                 />
               ))}
             </tbody>
