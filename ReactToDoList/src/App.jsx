@@ -9,7 +9,7 @@ import {
   ColoredMessage,
   Text,
 } from "./components/styles.jsx";
-import ConpTodoTr from "./components/ConpTodoTr.jsx";
+import Row from "./components/Row.jsx";
 
 function App() {
   const [todoText, setTodoText] = useState("");
@@ -59,7 +59,7 @@ function App() {
           <table>
             <tbody>
               {todoList.map((newTodo) => (
-                <ConpTodoTr
+                <Row
                   key={newTodo.id}
                   todo={newTodo}
                   onDelete={onDeleteButton}

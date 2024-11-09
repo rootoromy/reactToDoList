@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { TodoTr, DeleteButton, Textarea } from "./styles";
+import { TodoTr, DeleteButton, InputText } from "./styles";
 import ToggleButton from "./Toggle";
 
 
 
-const ConpTodoTr = ({ todo, onDelete, onComplete }) => {
+const Row = ({ todo, onDelete, onComplete }) => {
   const [todoEdit, setTodoEdit] = useState(todo.text);
 
   const EditTextArea = (event) => {
@@ -16,7 +16,7 @@ const ConpTodoTr = ({ todo, onDelete, onComplete }) => {
   return (
     <TodoTr>
       <td>
-        <Textarea
+        <InputText
           type="text"
           value={todoEdit}
           onChange={EditTextArea}
@@ -35,7 +35,7 @@ const ConpTodoTr = ({ todo, onDelete, onComplete }) => {
 
 
 
-ConpTodoTr.propTypes = {
+Row.propTypes = {
   todo: PropTypes.shape({
     id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ ConpTodoTr.propTypes = {
   onComplete: PropTypes.func.isRequired,
 };
 
-export default ConpTodoTr;
+export default Row;
