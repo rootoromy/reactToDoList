@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { TodoTr, DeleteButton, InputText } from "./styles";
 import ToggleButton from "./Toggle";
@@ -33,15 +32,5 @@ const Row = ({ todo, onDelete, onComplete }) => {
   );
 };
 
-
-
-Row.propTypes = {
-  todo: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  }).isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onComplete: PropTypes.func.isRequired,
-};
 
 export default Row;

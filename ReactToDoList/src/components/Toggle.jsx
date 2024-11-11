@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import  { CompleteButton } from './styles';
 
 const ToggleButton = ({todo, onComplete}) =>{
@@ -10,14 +9,5 @@ const ToggleButton = ({todo, onComplete}) =>{
   );
 };
 
-
-ToggleButton.propTypes = {
-  todo: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    completed:PropTypes.bool.isRequired
-  }).isRequired,
-  onComplete: PropTypes.func.isRequired
-};
 
 export default ToggleButton;
