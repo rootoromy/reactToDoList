@@ -57,7 +57,7 @@ function App() {
         <Text>タスクを書いてね</Text>
         <Text>TODOボタンをクリックしてね</Text>
         <InputWrap className="inputWrap">
-          <Input type="text" value={todoText} onChange={onChangeTodoText} />
+          <Input type="text" value={todoText} onChange={onChangeTodoText} id="inputId"/>
           <Button onClick={onSubmit}>TODO</Button>
         </InputWrap>
 
