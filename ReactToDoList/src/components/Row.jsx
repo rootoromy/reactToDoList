@@ -23,10 +23,13 @@ const Row = ({ todo, onDelete, onComplete, onEdit }) => {
           onChange={EditTextArea}
           id={todo.id}
         />
-
       </td>
       <td>
-        <ToggleButton todo={todo} onComplete={onComplete} onEdit={onEdit}/>
+        <ToggleButton
+        completed={todo.completed}
+        onComplete={onComplete}
+        onEdit={onEdit}
+        />
       </td>
       <td>
         <DeleteButton onClick={() => onDelete(todo.id)}>Delete</DeleteButton>

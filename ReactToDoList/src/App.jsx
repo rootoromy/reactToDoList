@@ -42,12 +42,13 @@ function App() {
     setTodoList(updateTodoList);
   };
 
-  const onEdit = (id) => {
+  const onEdit = (id, text) => {
     const editTodoList = todoList.map((todo) =>
-      todo.id === id ? {...todo, text: todo.text } : todo);
+      todo.id === id ? {...todo, text } : todo);
     setTodoList(editTodoList);
   };
 
+  console.log(todoList);
 
   return (
     <>
@@ -69,7 +70,7 @@ function App() {
                   key={newTodo.id}
                   todo={newTodo}
                   onDelete={onDelete}
-                  onComplete={onComplete}
+                  onComplete={()=>onComplete(newTodo.id)}
                   onEdit={onEdit}
                 />
               ))}
