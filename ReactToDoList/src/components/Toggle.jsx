@@ -1,10 +1,9 @@
 import  { CompleteButton } from './styles';
 
-const ToggleButton = ({todo, onComplete}) =>{
-
+const ToggleButton = ({completed, onComplete}) =>{
   return (
-    <CompleteButton onClick={() => onComplete(todo.id)}>
-      {todo.completed ? '完了':'未完了'}
+    <CompleteButton onClick={onComplete}>
+      {completed ? '完了':'未完了'}
     </CompleteButton>
   );
 };
