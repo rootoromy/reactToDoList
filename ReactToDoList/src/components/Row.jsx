@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { TodoTr, DeleteButton, InputText } from "./styles";
 import ToggleButton from "./Toggle";
-import { v4 as uuidv4 } from "uuid";
 
 
 
@@ -22,7 +21,7 @@ const Row = ({ todo, onDelete, onComplete, onEdit }) => {
           type="text"
           value={todoEdit}
           onChange={EditTextArea}
-          id={uuidv4()}
+          id={todo.id}
         />
 
       </td>

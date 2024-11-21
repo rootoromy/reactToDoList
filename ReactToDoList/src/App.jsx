@@ -31,7 +31,7 @@ function App() {
     setTodoText("");
   };
 
-  const onDeleteButton = (id) => {
+  const onDelete = (id) => {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(newTodoList);
   };
@@ -68,7 +68,7 @@ function App() {
                 <Row
                   key={newTodo.id}
                   todo={newTodo}
-                  onDelete={onDeleteButton}
+                  onDelete={onDelete}
                   onComplete={onComplete}
                   onEdit={onEdit}
                 />
